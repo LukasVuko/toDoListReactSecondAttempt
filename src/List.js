@@ -2,8 +2,8 @@ import React from "react";
 
 class List extends React.Component {
   handleToggleClick = (e, index) => {
-    console.log(e.target.value);
-    if (e.target.name === "exit") {
+    console.log(e.target.className);
+    if (e.target.className === "close") {
       e.preventDefault();
       e.stopPropagation();
     } else {
