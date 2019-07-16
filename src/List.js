@@ -40,6 +40,3 @@ class List extends React.Component {
 }
 
 export default List;
-
-// onClick LI - iterate through array and switch isComplete to opposite
-// Were going to send Key
