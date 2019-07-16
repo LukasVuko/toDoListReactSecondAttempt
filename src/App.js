@@ -50,13 +50,8 @@ class App extends React.Component {
   };
 
   toggleListItem = i => {
-    const newchecklist = this.state.checklist.slice();
-    const key = i - 1;
-    if (newchecklist[key].isComplete) {
-      newchecklist[key].isComplete = false;
-    } else {
-      newchecklist[key].isComplete = true;
-    }
+    const newchecklist = [...this.state.checklist];
+    newchecklist[i].isComplete = !newchecklist[i].isComplete;
     this.setState({
       checklist: newchecklist
     });

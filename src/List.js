@@ -1,20 +1,32 @@
 import React from "react";
 
 class List extends React.Component {
+  handleToggleClick = (e, index) => {
+    console.log(e.target.value);
+    if (e.target.name === "exit") {
+      e.preventDefault();
+      e.stopPropagation();
+    } else {
+      this.props.toggleListItem(index);
+    }
+  };
+
   render() {
     return (
       <ul id="myUL">
-        {this.props.checklist.map(li => {
+        {this.props.checklist.map((toDoItem, index) => {
           return (
             <li
-              key={li.key}
-              className={li.isComplete ? "checked" : null}
-              onClick={() => this.toggleListItem(li.key)}
+              key={toDoItem.key}
+              className={toDoItem.isComplete ? "checked" : null}
+              onClick={e => this.handleToggleClick(e, index)}
+              index={index}
+              value="box"
             >
-              {li.desc}
+              {toDoItem.desc}
               <span
-                name="toggleLi"
-                onClick={() => this.removePlayer(li.key)}
+                value="exit"
+                onClick={() => this.props.removePlayer(toDoItem.key)}
                 className="close"
               >
                 ✖
