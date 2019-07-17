@@ -29,7 +29,7 @@ class Header extends React.Component {
           <input
             type="text"
             id="myInput"
-            placeholder="Title..."
+            placeholder="Add a list item..."
             value={this.state.value}
             onChange={this.handleUpdateValue}
           />
